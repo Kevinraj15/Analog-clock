@@ -1,0 +1,174 @@
+/* Base styles */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-color: #f1f2f6;
+}
+
+.clock {
+    width: 450px;
+    height: 70vh;
+    border: ridge 20px #eb2f06;
+    border-radius: 50%;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    background-color: white; 
+    display: flex;
+    position: relative;
+}
+
+.clock::after {
+    content: " ";
+    background-color: #eb2f06;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 10;
+}
+
+.number {
+    font-family: "Poppins", serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: #eb2f06;
+    position: absolute;
+    text-align: center;
+    width: 40%;
+    height: 70vh;
+    left: 30%;
+}
+
+.number-1 { transform: rotate(30deg); }
+.number-2 { transform: rotate(60deg); }
+.number-3 { transform: rotate(90deg); }
+.number-4 { transform: rotate(120deg); }
+.number-5 { transform: rotate(150deg); }
+.number-6 { transform: rotate(180deg); }
+.number-7 { transform: rotate(210deg); }
+.number-8 { transform: rotate(240deg); }
+.number-9 { transform: rotate(270deg); }
+.number-10 { transform: rotate(300deg); }
+.number-11 { transform: rotate(330deg); }
+.number-12 { transform: rotate(360deg); }
+
+.needle {
+    --rotation: 0;
+    width: 10px;
+    height: 165px;
+    background-color: #eb2f06;
+    position: absolute;
+    left: 50%;
+    bottom: 48%;
+    z-index: 5;
+    border-top-right-radius: 50%;
+    border-top-left-radius: 50%;
+    transform: translateX(-50%) rotate(calc(var(--rotation) * 1deg));
+    border: 1px solid black;
+    transform-origin: bottom;
+}
+
+.sec {
+    background-color: #eb2f06;
+    width: 3px;
+    height: 45%;
+}
+
+.hrs {
+    background-color: black;
+    width: 7px;
+    height: 25%;
+}
+
+.min {
+    background-color: black;
+    width: 7px;
+    height: 40%;
+}
+
+/* Media query for mobile screens */
+@media (max-width: 768px) {
+    .clock {
+        width: 300px;
+        height: 60vh;
+        border-width: 15px;
+    }
+
+    .clock::after {
+        width: 15px;
+        height: 15px;
+    }
+
+    .number {
+        font-size: 16px;
+        height: 60vh;
+    }
+
+    .needle {
+        width: 8px;
+        height: 120px;
+    }
+
+    .sec {
+        width: 2px;
+        height: 35%;
+    }
+
+    .hrs {
+        width: 6px;
+        height: 20%;
+    }
+
+    .min {
+        width: 6px;
+        height: 35%;
+    }
+}
+
+@media (max-width: 480px) {
+    .clock {
+        width: 300px;
+        height: 50vh;
+        border-width: 10px;
+    }
+
+    .clock::after {
+        width: 10px;
+        height: 10px;
+    }
+
+    .number {
+        font-size: 12px;
+        height: 50vh;
+    }
+
+    .needle {
+        width: 6px;
+        height: 90px;
+    }
+
+    .sec {
+        width: 1.5px;
+        height: 30%;
+    }
+
+    .hrs {
+        width: 5px;
+        height: 18%;
+    }
+
+    .min {
+        width: 5px;
+        height: 30%;
+    }
+}
